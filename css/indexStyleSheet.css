@@ -11,45 +11,77 @@ html,body {
 #wrapper{
     width: 100%;
     min-height: 100%;
-    background-color:rgb(106, 107, 121);
+    background-color:gainsboro;
    
 }
-#header{
-    background-color: rgba(6, 151, 248, 0.726);
+/*Header*/
+.header{
+    background-color:rgb(12, 99, 16);
+    padding-left:160px;
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 3px;
     
 }
-#header{
-    padding-left:160px;
+.header a:nth-child(1){
+    margin-right: 5px;
 }
-#sidebar{
+.header a{
+    font-size: large;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+}
+.header a:hover{
+    text-decoration: underline;
+}
+.verticalRuler{
+    border-left: 2px solid white;
+    margin: 4px;
+    
+}
+/*Sidebar*/
+.sidebar {
     height: 100%; /* Full-height: remove this if you want "auto" height */
     width: 160px; /* Set the width of the sidebar */
     position: fixed; /* Fixed Sidebar (stay in place on scroll) */
     z-index: 0; /* Stay on top */
     top: 0; /* Stay at the top */
     left: 0;
-    background-color: rgb(43, 43, 43); /* Black */
+    background-color: rgb(37, 37, 37); /* Black */
     overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 12px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 5px;
+    
+    
+   
     
 }
-.sidebar_a {
-    padding-left: 8px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
+.sidebar :nth-child(1){
+    margin: 10px 0px;
 }
-.sidebar_a:hover{
+
+.sidebar a {
+    font-size: large;
+    font-weight: bold;
+    text-decoration: none;
+    color: rgb(165, 168, 165);
+    text-align: center;
+    
+}
+
+.sidebar a:hover{
+    
     color: whitesmoke;
+}
+.sidebar div{
+    border:solid 2px #818181;   
+    
 }
 #main{
     padding-left: 160px;
 }
-.sidebar_divs{
-    border:solid 2px #818181;;
-    margin: 10px 1px;
-    padding: 4px;
-    
-    
-}
+
+
