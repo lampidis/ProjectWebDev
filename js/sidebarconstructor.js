@@ -15,7 +15,12 @@ let inviteAFreind=document.createElement("a");
 inviteAFreind.setAttribute("href","index.html");
 inviteAFreind.innerHTML="Invite a freind";
 
+let academy=document.createElement("a");
+academy.setAttribute("href","index.html");
+academy.innerHTML="Academy";
+
 sidebar.appendChild(a);
 sidebar.appendChild(newGame);
 sidebar.appendChild(practice);
 sidebar.appendChild(inviteAFreind);
+sidebar.appendChild(academy);
