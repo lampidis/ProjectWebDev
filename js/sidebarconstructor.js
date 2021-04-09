@@ -16,7 +16,7 @@ inviteAFreind.setAttribute("href","index.html");
 inviteAFreind.innerHTML="Invite a freind";
 
 let academy=document.createElement("a");
-academy.setAttribute("href","index.html");
+academy.setAttribute("href","openings.html");
 academy.innerHTML="Academy";
 
 sidebar.appendChild(a);
