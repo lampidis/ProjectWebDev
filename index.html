@@ -10,6 +10,8 @@
     <script src="js/sidebarconstructor.js" defer></script>
     <script src="js/navbarconstructor.js" defer></script>
     <script src="js/chat.js" defer></script>
+    <script src="js/login.js" defer></script>
+    <script src="js/signup.js" defer></script>
 </head>
 <body>
     <div id="wrapper"><!--Full Page Wrapper division-->
@@ -76,7 +78,44 @@
             </div>
             <!--Chat-->
             <button class="chatExpansion" onclick="openForm()"><img src="source/social.jpg" alt="chat"></button>
-            <div class="chatBox">                 
+            <div class="chatBox">
+                <form class="chatContainer chatForm" action="">
+                    <div class="chatSelectorFlex">
+                    <div class="chatSelector">
+                        Λουκάς
+                    </div>
+                    <div class="chatSelector">
+                        Κώστας
+                    </div>
+                    <div class="chatSelector">
+                        Άρης
+                    </div>
+                </div>
+                    <div class="Xdiv">
+                        <button class="closeButton" onclick="closeForm()" type="button">
+                            <img src="source/x.jpg" alt="">
+                            
+                        </button>
+                    </div>
+                    
+                    <label for="chatbox">Messages</label>
+                    <div class="chatHistory">
+                        <div class="recieved">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos tempore distinctio eaque laudantium nam quaerat 
+                        </div>
+                        
+                        <div class="recieved">
+                            inventore rem debitis illum, vitae corporis unde quidem illo est, qui ipsam praesentium minus vel.
+                        </div>
+                        <div class="sent">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos tempore distinctio eaque laudantium nam quaerat inventore rem debitis illum, vitae corporis unde quidem illo est, qui ipsam praesentium minus vel.
+                        </div>
+                        
+                    </div>
+                    <textarea name="chatbox" id="chatbox"   placeholder="Type message..." required></textarea>
+                    <button type="submit" class="sendButton">Send</button>
+
+                </form>                 
             </div>
         </div>
         
