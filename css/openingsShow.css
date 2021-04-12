@@ -1,0 +1,12 @@
+.openings_show{
+    flex: 1 1 100%;
+    margin-top: 25px;
+    display: flex;
+    overflow-x: auto;
+    flex-direction: column;
+    gap: 20px;
+}
+
+img{
+    width: 300px;
+}
