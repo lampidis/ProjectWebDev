@@ -9,7 +9,7 @@ newGame.innerHTML="New Game";
 
 let practice=document.createElement("a");
 practice.setAttribute("href","index.html");
-practice.innerHTML="Practice";
+practice.innerHTML="Puzzles";
 
 let inviteAFreind=document.createElement("a");
 inviteAFreind.setAttribute("href","index.html");
