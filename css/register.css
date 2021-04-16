@@ -1,0 +1,19 @@
+.register{
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start!important;
+    font-size: 30px;
+    color:black;
+    font-weight: bold;
+     padding-left: 40px;
+     padding-top: 20px;
+}
+
+.register input[type=text], input[type=password], input[type=submit]{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
