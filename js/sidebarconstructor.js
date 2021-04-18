@@ -22,7 +22,7 @@ academy.innerHTML="Academy";
 
 let settings=document.createElement("a");
 settings.classList.add("settings")
-settings.setAttribute("href","settings.html");
+settings.setAttribute("href","index.html");
 settings.innerHTML="Settings";
 
 
