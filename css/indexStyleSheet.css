@@ -166,3 +166,7 @@ html,body {
 .explorer a:hover{
     font-weight: 800;
 }
+.settings{
+    margin-top: auto;
+    margin-bottom: 30px;
+}

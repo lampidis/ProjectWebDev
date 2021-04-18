@@ -24,6 +24,7 @@
 
 
 .chatContainer {
+  
   max-width: 300px;
   padding: 10px;
   background-color: white;
@@ -51,6 +52,7 @@
 }
 .chatHistory{
     flex: 1 1 100%;
+    max-height: 350px;
 }
 
 .chatContainer  {
@@ -63,13 +65,25 @@
   display: flex;
   flex-direction: row;
   border: 1px solid black;
+  
+  background-color: rgb(12, 99, 16);
+
   /*overflow-x: scroll;*/
 }
 .chatSelector{
 flex: 1 1 15%;
-border-left: 1px solid black;
-
 text-align: center;
+border: 1px solid whitesmoke;
+display: flex;
+align-items: center;
+color: whitesmoke;
+font-weight:bold;
+}
+.chatSelector span{
+  flex :1 1 100%;
+}
+.selected{
+  background-color: rgb(16, 133, 21);
 }
 .chatContainer:nth-child(2){
   justify-items: flex-end;
@@ -88,7 +102,8 @@ text-align: center;
 .chatHistory{
   border:1px solid black;
   display: flex;
-  flex-direction: column;
+  flex-direction:column-reverse ;
+  overflow-y:scroll;
 
 }
 .recieved{
@@ -98,6 +113,8 @@ text-align: center;
   flex: 1 1 80%;
   max-width: 80%;
   border: 1px solid black;
+  background-color: whitesmoke;
+  padding: 2px;
 }
 .sent{
   margin-top: 2px;
@@ -106,118 +123,9 @@ text-align: center;
   flex: 1 1 80%;
   max-width: 80%;
   border: 1px solid black;
-
+  background-color: rgb(240, 240, 240);
+  padding: 2px;
 }
-=======
-
-
-.chatExpansion{
-  background-color: white;
-  color: white;
-  cursor: pointer;
-  opacity: 0.8;
-  position: fixed;
-  bottom: 23px;
-  right: 28px;
-  width: 35px;
+.chatContainer{
+  background-color: rgba(51, 51, 51, 0.897);
 }
-.chatExpansion img{
-    max-width: 100%;
-}
-
-
-.chatForm {
-  
-  position: fixed;
-  bottom: 0;
-  right: 15px;
-  z-index: 9;
-}
-
-
-.chatContainer {
-  max-width: 300px;
-  padding: 10px;
-  background-color: white;
-  border: 1px solid black;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-}
-
-.chatContainer textarea {
-  
-  border: none;
-  background: #f1f1f1;
-  resize: none;
-  min-height: 20px;
-  max-width: 85%;
-  flex:1 1 90%;
-}
-.sendButton{
-    flex: 1 1 10%;
-}
-.chatContainer textarea:focus {
-  background-color: #ddd;
-  outline: none;
-}
-.chatHistory{
-    flex: 1 1 100%;
-}
-
-.chatContainer  {
-  opacity: 1;
-} 
-/*Chat Box*/
-.chatSelectorFlex{
-  flex:1 1 80%;
-  max-width: 80%;
-  display: flex;
-  flex-direction: row;
-  border: 1px solid black;
-  /*overflow-x: scroll;*/
-}
-.chatSelector{
-flex: 1 1 15%;
-border-left: 1px solid black;
-
-text-align: center;
-}
-.chatContainer:nth-child(2){
-  justify-items: flex-end;
-}
-
-.Xdiv{
-  padding: 0;
-  margin: 0;
-  flex: 1 1 10%;
-  max-width: 10%;
-  border: 1px solid black;
-}
-.closeButton img{
-  max-width: 100%;
-}
-.chatHistory{
-  border:1px solid black;
-  display: flex;
-  flex-direction: column;
-
-}
-.recieved{
-  margin-top: 2px;
-  margin-bottom: 2px;
-  align-self: left;
-  flex: 1 1 80%;
-  max-width: 80%;
-  border: 1px solid black;
-}
-.sent{
-  margin-top: 2px;
-  margin-bottom: 2px;
-  margin-left: 20%;
-  flex: 1 1 80%;
-  max-width: 80%;
-  border: 1px solid black;
-
-}
-
