@@ -1,6 +1,6 @@
-.openings_show{
+.open_end_show{
     flex: 1 1 100%;
-    margin-top: 25px;
+    margin: 25px;
     display: flex;
     overflow-x: auto;
     flex-direction: column;
@@ -9,4 +9,16 @@
 
 img{
     width: 300px;
+}
+
+.open_end_show div{
+    display: fleX;
+    flex-direction: row;
+    gap: 30px;
+}
+
+#title{
+    font-size: 200%;
+    font-weight: bold;
+    color: rgb(37, 37, 37);
 }
