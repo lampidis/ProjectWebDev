@@ -1,6 +1,6 @@
 .open_end_show{
     flex: 1 1 100%;
-    margin: 25px;
+    margin: 2.5em;
     display: flex;
     overflow-x: auto;
     flex-direction: column;
@@ -8,17 +8,17 @@
 }
 
 img{
-    width: 300px;
+    width: 30em;
 }
 
 .open_end_show div{
     display: fleX;
     flex-direction: row;
-    gap: 30px;
+    gap: 3em;
 }
 
 #title{
     font-size: 200%;
     font-weight: bold;
-    color: rgb(37, 37, 37);
+    color: black;
 }

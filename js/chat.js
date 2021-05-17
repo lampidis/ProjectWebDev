@@ -3,16 +3,16 @@ const chatBox=document.querySelector(".chatBox");
 function openForm() {
     
     button.style.display="none";
-    //createChat();
+    createChat();
     chatBox.style.display="block";
   }
   
-  function closeForm() {
-    
-    button.style.display="block";
-    chatBox.style.display="none";
-  }
-  /*
+function closeForm() {
+  
+  button.style.display="block";
+  chatBox.style.display="none";
+}
+
 function createChat(){
     const form =document.createElement("form");
     form.classList.add("chatContainer");
@@ -52,7 +52,7 @@ function createChat(){
     form.appendChild(label);
     form.appendChild(textarea);
     form.appendChild(sendButton);
-    */
+}
 
     
 
