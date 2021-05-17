@@ -1,8 +1,12 @@
 .Practice{
     flex: 1 1 65%;
+    margin: 25px;
+    display: flex;
+    overflow-x: auto;
+    flex-direction: column;
+    gap: 20px;
 }
 .Practice img{
-    margin: 25px;
     width: 90%;
     max-width: 800px;
 }
