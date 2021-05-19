@@ -27,6 +27,10 @@ body::-webkit-scrollbar-thumb {
   background: #b93c3c;
 }
 
+.activeGame::-webkit-scrollbar-thumb:hover {
+  background: #7a2222;
+}
+
 main {
   margin-left: 5rem;
 }
