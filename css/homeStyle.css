@@ -1,3 +1,4 @@
+
 /* Active game display section*/
 .activeGame{
     flex: 1 1 100%;
@@ -9,8 +10,7 @@
     gap :15px;
 }
 .activeGame::-webkit-scrollbar{
-    width: 10px;
-    padding: 10px;
+    height: 0.8em;
 }
 
 .activeGame::-webkit-scrollbar-track {
@@ -22,7 +22,7 @@
 }
 
 .activeGame::-webkit-scrollbar-thumb:hover {
-    background: #555;
+    background: #7a2222;
   }
 
 .activeGame div{
@@ -31,6 +31,7 @@
 
 .activeGame div img{
     max-width: 150px;
+    padding: 0.3em 0;
 }
 /*Text Box*/
 .textBox{
@@ -68,15 +69,18 @@
     width: 100%;
     display: flex;
     flex-direction: row;
-    padding: 3px;
-    margin: 0;
+    padding: 0.5em 0;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 5em;
 }
+
 .explorer a{
     font-size: large;
     text-decoration: none;
     color: #7a2222;
     text-align: center;
-    margin-left: 1.5em;
+    margin-right: 1.5em;
     font-weight: bold;
 }
 .explorer a:hover{
