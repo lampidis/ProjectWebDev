@@ -44,7 +44,6 @@ main {
   padding-left: 16em;
   display: flex;
   flex-direction: row-reverse;
-  margin-left: 5em;
   padding:0;
 }
 .header a{
