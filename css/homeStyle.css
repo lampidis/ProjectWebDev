@@ -14,10 +14,12 @@
 
 .activeGame::-webkit-scrollbar-track {
     background: #1e1e24;
+    border-radius: 1em;
 }
 
 .activeGame::-webkit-scrollbar-thumb {
     background: #b93c3c;
+    border-radius: 1em;
 }
 
 .activeGame::-webkit-scrollbar-thumb:hover {
