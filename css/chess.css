@@ -1,20 +1,21 @@
 
 .wrapperBoard {
     border: 49px solid #3a231d;
-    width: 570px;
+    width: 488px;
     margin-top: 20px;
 }
 
 .conteiner{
     display:grid;
-    grid-template-columns: repeat(8, 70px);
-    grid-template-rows: repeat(8, 70px);
+
+    grid-template-columns: repeat(8, 60px);
+    grid-template-rows: repeat(8, 60px);
     grid-auto-flow: row;
     border: 5px solid black;
 }
 
 .box {
-    padding: 20px;
+    padding: auto;
     font-size: 150%;
     background-color: #d1a86f;
     color: #000;

@@ -1,5 +1,5 @@
-const openings_div=document.querySelector(".open_end_show");
 
+const openings_div=document.querySelector(".open_end_show");
 
 for (var i = 0; i < 3; i++) {
     let div1=document.createElement("div");
@@ -9,3 +9,4 @@ for (var i = 0; i < 3; i++) {
     div1.appendChild(paragraph);
     openings_div.appendChild(div1);
  }
+

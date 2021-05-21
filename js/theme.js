@@ -1,3 +1,4 @@
+
 const themeMap = {
   dark: "light",
   light: "solar",
@@ -20,3 +21,4 @@ function toggleTheme() {
 }
 
 document.getElementById('themeButton').onclick = toggleTheme;
+
