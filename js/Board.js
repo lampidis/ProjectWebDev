@@ -10,9 +10,275 @@ class Board{
         this.enpassant="-";
         this.castle="KQkq";
         this.selectedPiece;
-        
+        this.colour="white";
 
         
+    }
+    colourChange(){
+        if(this.colour=="white"){
+            this.colour="black";
+        }
+        else{
+            this.colour="white";
+        }
+    }
+    isColorsTurn(colour){
+        if(this.colour==colour){
+            return true;
+        }
+        return false;
+    }
+    notBlocked(move){
+        let beh=move.piece.behaviour;
+        let des=move.pos;
+        let row=parseInt(des[0]);
+        let col=parseInt(columns.indexOf(des[1])+1);
+        let posRow=parseInt(move.piece.pos[0]);
+        let posCol=parseInt(columns.indexOf(move.piece.pos[1])+1);
+        let pieceColour=move.piece.colour;
+        if(beh="pawn"){
+            let from=Math.min(row,posRow);
+            let to=Math.max(row,posRow);
+            if(col==posCol){
+                
+                
+                for (let i = from+1; i < to; i++) {
+                    
+                    for(let piece of this.pieceset.set){
+                        
+                         if(piece.pos==`${i}${columns[col-1]}`){
+                             console.log("Blocked");
+                             return false;
+ 
+                         }
+                     }
+                }
+                for(let piece of this.pieceset.set){
+                    console.log(`${row}${columns[col-1]}`);
+                     if(piece.pos==`${row}${columns[col-1]}`){
+                         console.log("Blocked");
+                         return false;
+
+                     }
+                 }
+            }
+            else{
+                for(let piece of this.pieceset.set){
+                   
+                    if(piece.pos==`${to}${columns[col-1]}`&&piece.colour!=move.piece.colour){
+                        
+                        return true;
+
+                    }
+                }
+                console.log("Attack invalid"); 
+                return false;
+            }
+            return true;
+        }
+        if(beh="rook"){
+            if(col==posCol){
+               let from=Math.min(row,posRow);
+               let to=Math.max(row,posRow);
+               
+               for (let i = from+1; i < to; i++) {
+                   
+                   for(let piece of this.pieceset.set){
+                   
+                        if(piece.pos==`${i}${columns[col-1]}`){
+                            console.log("Blocked");
+                            return false;
+
+                        }
+                    }
+               }
+               for(let piece of this.pieceset.set){
+                   
+                    if(piece.pos==`${to}${columns[col-1]}`&&piece.colour==move.piece.colour){
+                        console.log("Blocked");
+                        return false;
+
+                    }
+                }
+            }
+            if(row==posRow){
+                let from=Math.min(col,posCol);
+                let to=Math.max(col,posCol);
+                for (let i = from+1; i < to; i++) {
+                    //let loc=document.getElementById(`${columns[col-1]}${i}`);
+                    for(let piece of this.pieceset.set){
+                    
+                         if(piece.pos==`${row}${columns[i-1]}`){
+                             console.log("Blocked");
+                             return false;
+ 
+                         }
+                     }
+                }
+                for(let piece of this.pieceset.set){
+                   
+                    if(piece.pos==`${to}${columns[col-1]}`&&piece.colour==move.piece.colour){
+                        console.log("Blocked");
+                        return false;
+
+                    }
+                }
+             }
+             return true;
+        }
+        if(beh="knight"){
+
+            for(let piece of this.pieceset.set){
+                   
+                if(piece.pos==`${row}${columns[col-1]}`&&piece.colour==move.piece.colour){
+                    console.log("Blocked");
+                    return false;
+
+                }
+            }
+            return true;
+        }
+        if(beh="bishop"){
+            for(let piece of this.pieceset.set){
+                   
+                if(piece.pos==`${row}${columns[col-1]}`&&piece.colour==move.piece.colour){
+                    console.log("Blocked");
+                    return false;
+
+                }
+            } 
+            let fromR=Math.min(row,posRow);
+            let toR=Math.max(row,posRow);
+            let fromC=Math.min(row,posRow);
+            let toC=Math.max(row,posRow);
+            let counter=1;
+            while(fromR+counter<toR){
+                for(let piece of this.pieceset.set){
+                   
+                    if(piece.pos==`${fromR+counter}${columns[fromC+counter]}`){
+                        console.log("Blocked");
+                        return false;
+    
+                    }
+                }
+                counter++;
+            }
+            return true;
+        }
+        if(beh="queen"){
+            if(col==posCol){
+                let from=Math.min(row,posRow);
+                let to=Math.max(row,posRow);
+                
+                for (let i = from+1; i < to; i++) {
+                    //let loc=document.getElementById(`${columns[col-1]}${i}`);
+                    for(let piece of this.pieceset.set){
+                    
+                         if(piece.pos==`${i}${columns[col-1]}`){
+                             console.log("Blocked");
+                             return false;
+ 
+                         }
+                     }
+                }
+                for(let piece of this.pieceset.set){
+                    
+                     if(piece.pos==`${to}${columns[col-1]}`&&piece.colour==move.piece.colour){
+                         console.log("Blocked");
+                         return false;
+ 
+                     }
+                 }
+             }
+             if(row==posRow){
+                 let from=Math.min(col,posCol);
+                 let to=Math.max(col,posCol);
+                 for (let i = from+1; i < to; i++) {
+                     //let loc=document.getElementById(`${columns[col-1]}${i}`);
+                     for(let piece of this.pieceset.set){
+                     
+                          if(piece.pos==`${row}${columns[i-1]}`){
+                              console.log("Blocked");
+                              return false;
+  
+                          }
+                      }
+                 }
+                 for(let piece of this.pieceset.set){
+                    
+                     if(piece.pos==`${to}${columns[col-1]}`&&piece.colour==move.piece.colour){
+                         console.log("Blocked");
+                         return false;
+ 
+                     }
+                 }
+              }
+              for(let piece of this.pieceset.set){
+                   
+                if(piece.pos==`${row}${columns[col-1]}`&&piece.colour==move.piece.colour){
+                    console.log("Blocked");
+                    return false;
+
+                }
+            } 
+            let fromR=Math.min(row,posRow);
+            let toR=Math.max(row,posRow);
+            let fromC=Math.min(row,posRow);
+            let toC=Math.max(row,posRow);
+            let counter=1;
+            while(fromR+counter<toR){
+                for(let piece of this.pieceset.set){
+                   
+                    if(piece.pos==`${fromR+counter}${columns[fromC+counter]}`){
+                        console.log("Blocked");
+                        return false;
+    
+                    }
+                }
+                counter++;
+            } 
+            return true; 
+        }
+        if(beh="king"){
+            for(let piece of this.pieceset.set){
+                   
+                if(piece.pos==`${row}${columns[col-1]}`&&piece.colour==move.piece.colour){
+                    console.log("Blocked");
+                    return false;
+
+                } 
+            }
+            return true;
+        }
+    }
+    isPinned(move){
+        return false;
+    }
+    isUnderCheck(){
+        return false;
+    }
+    validate(move){
+        let validity=false;
+        if(this.isColorsTurn(move.piece.colour)){
+            console.log("It is this colors turn");
+            if(move.piece.move(move.pos)){
+                console.log("The move is legal");
+                if(this.notBlocked(move)){
+                    console.log("The move is not blocked");
+                    if(!this.isPinned(move)){
+                        console.log("Not pinned");
+                        if(!this.isUnderCheck()){
+                            console.log("Not under check");
+                            //make move
+                            this.moveset.set.push(move);
+                            this.colourChange();
+                        }
+                        
+                    }
+                }
+            }
+        }
+
     }
     //https://en.wikipedia.org/wiki/Forsyth%E2%80%93Edwards_Notation
     extractPosArrayFromForsythEdwardsNotation(ForsythEdwardsNotationString){
@@ -88,9 +354,11 @@ class Board{
                currentElement.setAttribute("id",i+j);
                currentElement.classList.add("box");
                currentElement.addEventListener("click",function(){
+                   
+                   //Band Aid for testing
                 if(board.selectedPiece==undefined){//First click
                     //check if div occupied.
-                    console.log("First Click");
+                    //console.log("First Click");
                     let occupancy=false;
                     for(let piece of board.pieceset.set){
                    
@@ -102,9 +370,12 @@ class Board{
                     }
                 }
                 else{//Second Click+
-                    console.log("Second Click");
                     let destination=this.getAttribute("id");
-                    console.log(board.selectedPiece.move(destination)+" , "+destination+" , "+board.selectedPiece.pos);
+                    let move=new Move(board.selectedPiece,destination);
+                    board.validate(move);
+                    //console.log("Second Click");
+                    
+                    //console.log(board.selectedPiece.move(destination)+" , "+destination+" , "+board.selectedPiece.pos);
                     if(board.selectedPiece.move(destination)){//valid move
                         let targetdiv=document.getElementById(destination);
                         let transfer=document.getElementById(board.selectedPiece.pos).removeChild(document.getElementById(board.selectedPiece.pos).childNodes[0]);
@@ -229,6 +500,9 @@ class Pawn extends Piece{
                     //this.promote();
                     return true;
                 }
+                return true;
+            }
+            if(Math.abs(columns.indexOf(location[1]) -columns.indexOf(this.pos[1]))==1&&parseInt(location[0])==parseInt(this.pos[0])+1){
                 return true;
             }
         }
@@ -374,7 +648,8 @@ class Moveset{
 }
 class Move{
     constructor(piece,targetPos){
-        //validate?
+        this.pos=targetPos;
+        this.piece=piece;
     }
 }
 
