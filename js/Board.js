@@ -36,7 +36,8 @@ class Board{
         let posRow=parseInt(move.piece.pos[0]);
         let posCol=parseInt(columns.indexOf(move.piece.pos[1])+1);
         let pieceColour=move.piece.colour;
-        if(beh="pawn"){
+        if(beh=="pawn"){
+            
             let from=Math.min(row,posRow);
             let to=Math.max(row,posRow);
             if(col==posCol){
@@ -54,7 +55,7 @@ class Board{
                      }
                 }
                 for(let piece of this.pieceset.set){
-                    console.log(`${row}${columns[col-1]}`);
+                   
                      if(piece.pos==`${row}${columns[col-1]}`){
                          console.log("Blocked");
                          return false;
@@ -76,7 +77,7 @@ class Board{
             }
             return true;
         }
-        if(beh="rook"){
+        if(beh=="rook"){
             if(col==posCol){
                let from=Math.min(row,posRow);
                let to=Math.max(row,posRow);
@@ -126,7 +127,7 @@ class Board{
              }
              return true;
         }
-        if(beh="knight"){
+        if(beh=="knight"){
 
             for(let piece of this.pieceset.set){
                    
@@ -138,40 +139,85 @@ class Board{
             }
             return true;
         }
-        if(beh="bishop"){
+        if(beh=="bishop"){
             for(let piece of this.pieceset.set){
                    
                 if(piece.pos==`${row}${columns[col-1]}`&&piece.colour==move.piece.colour){
+                    
                     console.log("Blocked");
                     return false;
 
                 }
             } 
-            let fromR=Math.min(row,posRow);
-            let toR=Math.max(row,posRow);
-            let fromC=Math.min(row,posRow);
-            let toC=Math.max(row,posRow);
             let counter=1;
-            while(fromR+counter<toR){
-                for(let piece of this.pieceset.set){
-                   
-                    if(piece.pos==`${fromR+counter}${columns[fromC+counter]}`){
-                        console.log("Blocked");
-                        return false;
+            if(row<posRow){
+                if(col<posCol){
+                    while(row+counter<posRow){
+                        for(let piece of this.pieceset.set){
+                    
+                            if(piece.pos==`${row+counter}${columns[col+counter-1]}`){
+                                console.log("Blockedi1");
+                                return false;
     
+                            }
+                        }
+                        counter++;
                     }
                 }
-                counter++;
+                else{
+                    while(row+counter<posRow){
+                        for(let piece of this.pieceset.set){
+                    
+                            if(piece.pos==`${row+counter}${columns[col-counter-1]}`){
+                                console.log("Blockedi2");
+                                return false;
+    
+                            }
+                        }
+                        counter++;
+                    }
+                }
             }
+            else{
+                if(col<posCol){
+                    while(row-counter>posRow){
+                        for(let piece of this.pieceset.set){
+                    
+                            if(piece.pos==`${row-counter}${columns[col+counter-1]}`){
+                                console.log("BlockedE1");
+                                return false;
+    
+                            }
+                        }
+                        counter++;
+                    }
+                }
+                else{
+                    while(row-counter>posRow){
+                        for(let piece of this.pieceset.set){
+                    
+                            if(piece.pos==`${row-counter}${columns[col-counter-1]}`){
+                                console.log("Blockede2");
+                                return false;
+    
+                            }
+                        }
+                        counter++;
+                    }
+                }  
+            }
+            
+            
             return true;
         }
-        if(beh="queen"){
+        if(beh=="queen"){
+            
             if(col==posCol){
                 let from=Math.min(row,posRow);
                 let to=Math.max(row,posRow);
                 
                 for (let i = from+1; i < to; i++) {
-                    //let loc=document.getElementById(`${columns[col-1]}${i}`);
+                    
                     for(let piece of this.pieceset.set){
                     
                          if(piece.pos==`${i}${columns[col-1]}`){
@@ -183,14 +229,15 @@ class Board{
                 }
                 for(let piece of this.pieceset.set){
                     
-                     if(piece.pos==`${to}${columns[col-1]}`&&piece.colour==move.piece.colour){
-                         console.log("Blocked");
+                     if(piece.pos==`${row}${columns[col-1]}`&&piece.colour==move.piece.colour){
+                         
+                         console.log("Blocked"); 
                          return false;
  
                      }
                  }
              }
-             if(row==posRow){
+            else if(row==posRow){
                  let from=Math.min(col,posCol);
                  let to=Math.max(col,posCol);
                  for (let i = from+1; i < to; i++) {
@@ -206,40 +253,85 @@ class Board{
                  }
                  for(let piece of this.pieceset.set){
                     
-                     if(piece.pos==`${to}${columns[col-1]}`&&piece.colour==move.piece.colour){
+                     if(piece.pos==`${row}${columns[col-1]}`&&piece.colour==move.piece.colour){
                          console.log("Blocked");
+                        
                          return false;
  
                      }
                  }
-              }
-              for(let piece of this.pieceset.set){
+              } 
+            else{
+                let counter=1;
+            if(row<posRow){
+                if(col<posCol){
+                    while(row+counter<posRow){
+                        for(let piece of this.pieceset.set){
+                    
+                            if(piece.pos==`${row+counter}${columns[col+counter-1]}`){
+                                console.log("Blockedi1");
+                                return false;
+    
+                            }
+                        }
+                        counter++;
+                    }
+                }
+                else{
+                    while(row+counter<posRow){
+                        for(let piece of this.pieceset.set){
+                    
+                            if(piece.pos==`${row+counter}${columns[col-counter-1]}`){
+                                console.log("Blockedi2");
+                                return false;
+    
+                            }
+                        }
+                        counter++;
+                    }
+                }
+            }
+            else{
+                if(col<posCol){
+                    while(row-counter>posRow){
+                        for(let piece of this.pieceset.set){
+                    
+                            if(piece.pos==`${row-counter}${columns[col+counter-1]}`){
+                                console.log("BlockedE1");
+                                return false;
+    
+                            }
+                        }
+                        counter++;
+                    }
+                }
+                else{
+                    while(row-counter>posRow){
+                        for(let piece of this.pieceset.set){
+                    
+                            if(piece.pos==`${row-counter}${columns[col-counter-1]}`){
+                                console.log("Blockede2");
+                                return false;
+    
+                            }
+                        }
+                        counter++;
+                    }
+                }  
+            }
+            }
+            for(let piece of this.pieceset.set){
                    
                 if(piece.pos==`${row}${columns[col-1]}`&&piece.colour==move.piece.colour){
+                    
                     console.log("Blocked");
                     return false;
 
                 }
             } 
-            let fromR=Math.min(row,posRow);
-            let toR=Math.max(row,posRow);
-            let fromC=Math.min(row,posRow);
-            let toC=Math.max(row,posRow);
-            let counter=1;
-            while(fromR+counter<toR){
-                for(let piece of this.pieceset.set){
-                   
-                    if(piece.pos==`${fromR+counter}${columns[fromC+counter]}`){
-                        console.log("Blocked");
-                        return false;
-    
-                    }
-                }
-                counter++;
-            } 
             return true; 
         }
-        if(beh="king"){
+        if(beh=="king"){
             for(let piece of this.pieceset.set){
                    
                 if(piece.pos==`${row}${columns[col-1]}`&&piece.colour==move.piece.colour){
@@ -248,13 +340,51 @@ class Board{
 
                 } 
             }
+            
             return true;
         }
     }
     isPinned(move){
         return false;
     }
-    isUnderCheck(){
+    isUnderCheck(move){
+        let examinePieces
+        let king;
+        if(this.colour=="white"){
+             examinePieces=this.pieceset.set.slice(16,31);
+             king=this.pieceset.set[this.pieceset.K[0]];
+        }
+        else{
+             examinePieces=this.pieceset.set.slice(0,15);
+             king=this.pieceset.set[this.pieceset.k[0]];
+        }
+        
+        if(move.piece.behaviour=="king"){
+            //check after move
+            for (let piece of examinePieces) {
+                if(piece.move(move.pos)){
+                    let moveToBeChecked=new Move(piece,move.pos);
+                    if(this.notBlocked(moveToBeChecked)){
+                        console.log(piece);
+                        return true;
+                    }
+                }
+            }
+
+        }
+        else{
+            //check without move
+
+            for (let piece of examinePieces) {
+                if(piece.move(king.pos)){
+                    let moveToBeChecked=new Move(piece,king.pos);
+                    if(this.notBlocked(moveToBeChecked)&&piece.pos!=move.pos){
+                        console.log(piece);
+                        return true;
+                    }
+                }
+            }
+        }
         return false;
     }
     validate(move){
@@ -267,18 +397,19 @@ class Board{
                     console.log("The move is not blocked");
                     if(!this.isPinned(move)){
                         console.log("Not pinned");
-                        if(!this.isUnderCheck()){
+                        if(!this.isUnderCheck(move)){
                             console.log("Not under check");
                             //make move
                             this.moveset.set.push(move);
                             this.colourChange();
+                            return true;
                         }
                         
                     }
                 }
             }
         }
-
+        return false;
     }
     //https://en.wikipedia.org/wiki/Forsyth%E2%80%93Edwards_Notation
     extractPosArrayFromForsythEdwardsNotation(ForsythEdwardsNotationString){
@@ -372,11 +503,11 @@ class Board{
                 else{//Second Click+
                     let destination=this.getAttribute("id");
                     let move=new Move(board.selectedPiece,destination);
-                    board.validate(move);
+                    //board.validate(move);
                     //console.log("Second Click");
                     
                     //console.log(board.selectedPiece.move(destination)+" , "+destination+" , "+board.selectedPiece.pos);
-                    if(board.selectedPiece.move(destination)){//valid move
+                    if(board.validate(move)){//valid move
                         let targetdiv=document.getElementById(destination);
                         let transfer=document.getElementById(board.selectedPiece.pos).removeChild(document.getElementById(board.selectedPiece.pos).childNodes[0]);
                         targetdiv.appendChild(transfer);
@@ -425,12 +556,12 @@ class Pieceset{
         this.whitepawns=[0,1,2,3,4,5,6,7];
         this.blackpawns=[16,17,18,19,20,21,22,23];
         this.R=[8,15];
-        this.K=[9,14];
+        this.Kn=[9,14];
         this.B=[10,13];
         this.Q=[11];
         this.K=[12];
         this.r=[24,31];
-        this.k=[25,20];
+        this.kn=[25,20];
         this.b=[26,29];
         this.q=[27];
         this.k=[28];
@@ -486,7 +617,8 @@ class Pawn extends Piece{
     }
     move(location){
         
-        if(this.colour="white"){
+        if(this.colour=="white"){
+            
             if(this.pos[0]=='2'){
                 //can move 2
                 if(location[1]==this.pos[1]&&(parseInt(location[0])==parseInt(this.pos[0])+1||parseInt(location[0])==parseInt(this.pos[0])+2)){
@@ -506,7 +638,8 @@ class Pawn extends Piece{
                 return true;
             }
         }
-        if(this.colour="black"){
+        if(this.colour=="black"){
+            
             if(this.pos[0]=='7'){
                 //can move 2
                 if(location[1]==this.pos[1]&&(parseInt(location[0])==parseInt(this.pos[0])-1||parseInt(location[0])==parseInt(this.pos[0])-2)){
@@ -520,6 +653,9 @@ class Pawn extends Piece{
                     //this.promote();
                     return true;
                 }
+                return true;
+            }
+            if(Math.abs(columns.indexOf(location[1]) -columns.indexOf(this.pos[1]))==1&&parseInt(location[0])==parseInt(this.pos[0])-1){
                 return true;
             }
         }
