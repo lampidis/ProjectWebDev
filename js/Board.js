@@ -414,31 +414,37 @@ class Board{
         }
         else{
             //check without move
-
+            let indexedPiece=this.pieceset.set.indexOf(move.piece);
+            console.log(indexedPiece);
+            let previousloc=this.pieceset.set[indexedPiece].pos;
+            this.pieceset.set[indexedPiece].pos=move.pos;
             for (let piece of examinePieces) {
                 if(piece.move(king.pos)){
                     let moveToBeChecked=new Move(piece,king.pos);
                     if(this.notBlocked(moveToBeChecked)&&piece.pos!=move.pos){
                         //console.log(piece);
+                        this.pieceset.set[indexedPiece].pos=previousloc;
+
                         return true;
                     }
                 }
             }
+            this.pieceset.set[indexedPiece].pos=previousloc;
         }
         return false;
     }
     validate(move){
         let validity=false;
         if(this.isColorsTurn(move.piece.colour)){
-            //console.log("It is this colors turn");
+            console.log("It is this colors turn");
             if(move.piece.move(move.pos)){
-                //console.log("The move is legal");
+                console.log("The move is legal");
                 if(this.notBlocked(move)){
-                    //console.log("The move is not blocked");
+                    console.log("The move is not blocked");
                     if(!this.isPinned(move)){
-                        //console.log("Not pinned");
+                        console.log("Not pinned");
                         if(!this.isUnderCheck(move)){
-                            //console.log("Not under check");
+                            console.log("Not under check");
                             //make move
                             this.moveset.set.push(move);
                             this.colourChange();
@@ -632,9 +638,11 @@ class Board{
                                      rookEnd=document.getElementById("8f");
                                 }
                             }
+                            if(move.piece.pos=="1e"&&(move.pos=="1c"||move.pos=="1g")||move.piece.pos=="8e"&&(move.pos=="8c"||move.pos=="8g")){
+                                let transfer=rookStart.removeChild(rookStart.childNodes[0]);
+                                rookEnd.appendChild(transfer);
+                            }
                             
-                            let transfer=rookStart.removeChild(rookStart.childNodes[0]);
-                            rookEnd.appendChild(transfer);
                         }
                         else if(move.piece.behaviour=="rook"){
                             if(move.piece.colour=="white"){
