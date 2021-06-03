@@ -1,9 +1,16 @@
+//const { response } = require("../../chessServer/app");
+
 let columns=["a","b","c","d","e","f","g","h"];
 const rows=["1","2","3","4","5","6","7","8"].reverse();
 const startingposition="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR";
 const testPosition="8/pP6/1K3k2/8/8/8/QQQqqqQQ/8";
 
 const boardContainer=document.querySelector(".wrapperBoard");
+//fetch id and colour 
+id=1;
+colour="white";
+//fetch state 
+
 class Board{
     constructor(){
         this.pieceset=new Pieceset();
@@ -682,6 +689,8 @@ class Board{
                             board.promote(move.piece);
                         }
                         board.selectedPiece=undefined;
+                        //fetch
+                        //then this.colour 
                     }
                     else{//invalid move
                         board.selectedPiece=undefined;
@@ -971,5 +980,6 @@ class Move{
     }
 }
 
-const newGameBoard=new Board()
+const newGameBoard=new Board("english")
 newGameBoard.initialize(newGameBoard);
+newGameBoard.setPosition("")
