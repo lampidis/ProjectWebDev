@@ -25,6 +25,7 @@ router.post('/register', logInController.doRegister);
 router.route('/home').get(logInController.checkAuthenticated, chessController.getHomePage);
 
 //router.get('/home', chessController.getHomePage)
+//chessController.checkIfFinifhed, 
 
 router.get('/lobby', logInController.checkAuthenticated, chessController.getLobby)
 router.get('/lobby/users', logInController.checkAuthenticated, chessController.findUserNames)
@@ -32,7 +33,7 @@ router.get('/lobby/findGame', logInController.checkAuthenticated, chessControlle
 router.get('/newGame', logInController.checkAuthenticated, chessController.getNewGame)
 router.get('/newGame/info', logInController.checkAuthenticated, chessController.getInfo)
 router.post('/newGame/plays', chessController.makeMove)
-router.get('/newGame/opponentMove', chessController.checkIfFinifhed, chessController.opponentMove)
+router.get('/newGame/opponentMove', chessController.opponentMove)
 router.get('/newGame/checkmate', chessController.checkmate)
 router.get('/newGame/draw', chessController.draw)
 

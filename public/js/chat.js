@@ -14,42 +14,61 @@ function closeForm() {
 }
 
 function createChat(){
-    const form =document.createElement("form");
+    let form =document.createElement("form");
     form.classList.add("chatContainer");
     form.classList.add("chatForm");
 
-    const title=document.createElement("h2");
+    let PeopleDiv=document.createElement("div");
+    PeopleDiv.classList.add("chatSelectorFlex");
+    let titleDiv=document.createElement("div");
+    titleDiv.classList.add("chatSelector");
+    titleDiv.classList.add("selected");
+    let title=document.createElement("span");
     title.innerHTML="Chat";
+    titleDiv.appendChild(title);
+    PeopleDiv.appendChild(titleDiv);
+    
 
-    const closeButton=document.createElement("button");
+    let closebuttonDiv=document.createElement("div");
+    closebuttonDiv.classList.add("Xdiv");
+    let closeButton=document.createElement("button");
     closeButton.classList.add("closeButton");
     closeButton.setAttribute("onclick","closeForm()");
     closeButton.setAttribute("type","button");
     closeButton.innerHTML="X";
+    closebuttonDiv.appendChild(closeButton);
 
-    const label=document.createElement("label");
-    label.setAttribute("for","chatbox");
-    label.innerHTML="Messages";
+    // const label=document.createElement("label");
+    // label.setAttribute("for","chatbox");
+    // label.innerHTML="Messages";
 
-    const textmessage=document.createElement("div");
-    textmessage.classList.add("chatHistory");
-    textmessage.innerHTML="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus praesentium similique in voluptas nemo aut eveniet hic optio alias expedita voluptatum ipsum sunt illum, possimus nostrum accusantium, tenetur qui placeat.    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque explicabo consequuntur molestias reiciendis architecto sapiente a nisi itaque? Labore nemo vitae odio itaque exercitationem eaque debitis mollitia maiores quaerat nesciunt.    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae, deserunt dolorem esse, nobis porro eos maxime sapiente eum, unde atque totam illo et ex! In libero consequatur ab animi! Impedit.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint aliquam tempora reprehenderit laudantium neque perspiciatis tempore quia. Vel, at commodi error est inventore qui cumque illum nemo, officiis nam tenetur."
+    let messageArea=document.createElement("div");
+    messageArea.classList.add("chatHistory");
+    let textmessageS=document.createElement("div");
+    textmessageS.classList.add("sent");
+    let textmessageR=document.createElement("div");
+    textmessageR.classList.add("recieved");
+    textmessageS.innerHTML="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus praesentium similique in voluptas nemo aut eveniet hic optio alias expedita voluptatum ipsum sunt illum, possimus nostrum accusantium, tenetur qui placeat. "
+    textmessageR.innerHTML="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus praesentium similique in voluptas nemo aut eveniet hic optio alias expedita voluptatum ipsum sunt illum, possimus nostrum accusantium, tenetur qui placeat. "
+    messageArea.appendChild(textmessageR);
+    messageArea.appendChild(textmessageS);
 
-    const textarea=document.createElement("textarea");
+
+    let textarea=document.createElement("textarea");
     textarea.setAttribute("placeholder","Type message...");
     textarea.setAttribute("name","chatbox");
     textarea.required=true;
     
-    const sendButton=document.createElement("button");
+    let sendButton=document.createElement("button");
     sendButton.setAttribute("type","submit");
     sendButton.classList.add("sendButton");
     sendButton.innerHTML="Send";
 
     chatBox.appendChild(form);
-    form.appendChild(title);
-    form.appendChild(closeButton);
-    form.appendChild(textmessage);
-    form.appendChild(label);
+    form.appendChild(PeopleDiv);
+    form.appendChild(closebuttonDiv);
+    form.appendChild(messageArea);
+  
     form.appendChild(textarea);
     form.appendChild(sendButton);
 }

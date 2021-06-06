@@ -79,19 +79,19 @@ exports.getInfo = (req, res) => {
         });
     }
 }
-exports.opponentMove = (req, res) => {
-    console.log("opponentMove")
-    if(req.session.board_id){
-        model.opponentMove(req.session.board_id, req.session.lastPosition, (err, position) => {
-            if (err) {
-                console.log(err.message);
-            }
-            else {
-                res.status(200).json({ newPos: position });
-            }
-        });
-    }
-}
+// exports.opponentMove = (req, res) => {
+//     console.log("opponentMove")
+//     if(req.session.board_id){
+//         model.opponentMove(req.session.board_id, req.session.lastPosition, (err, position) => {
+//             if (err) {
+//                 console.log(err.message);
+//             }
+//             else {
+//                 res.status(200).json({ newPos: position });
+//             }
+//         });
+//     }
+// }
 exports.searchGame = (req, res) => {
     console.log("lobby")
     model.searchWaitingPlayer((err, waitingPlayer) => {
@@ -204,4 +204,29 @@ exports.draw = (req, res) => {
                 res.status(200).json({res: response});
             }
         });
+}
+
+exports.opponentMove = (req, res) => {
+    console.log("opponentMove")
+    
+    if(req.session.board_id){
+        model.opponentMove(req.session.board_id, req.session.lastPosition, (err, position) => {
+            if (err) {
+                console.log(err.message);
+            }
+            else {
+                model.checkIfFinifhed(req.session.board_id, (err, response) => {
+                    if (err) {
+                        console.log(err.message);
+                    }
+                    else{
+                        let gstatus = response.state
+                        if (response.state == req.session.opponent_id.toString()) gstatus='lost'
+                        if (response.state == req.session.loggedUserId.toString()) gstatus='win'
+                        res.status(200).json({ newPos: position , gameStatus: gstatus});
+                    }
+                });
+            }
+        });
+    }
 }

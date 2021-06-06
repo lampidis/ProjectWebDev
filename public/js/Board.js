@@ -142,7 +142,7 @@ class Board{
                 }
                 for(let piece of examinePieces){
                    
-                    if(piece.pos==`${to}${columns[col-1]}`&&piece.colour==move.piece.colour){
+                    if(piece.pos==`${row}${columns[col-1]}`&&piece.colour==move.piece.colour){
                         
                         return false;
 
@@ -840,7 +840,28 @@ class Board{
         }
         return false;
     }
+    draw(){
+        let counterOfSufficientPieces=0;
+        let pieces=[];
+        for(let piece of this.pieceset.set){
+            if(piece.pos=="/")continue;
+            if(piece.behaviour=="rook"||piece.behaviour=="queen"||piece.behaviour=="pawn")return false;
+            if(piece.behaviour=="knight"||piece.behaviour=="bishop"){
+                counterOfSufficientPieces++;
+                pieces.push(piece);
+
+            }
+        }
+        if(counter<2)return true;
+        if(counter==2){
+            if(pieces[0].colour==pieces[1].colour)return false;
+            return true
+        }
+        return false;
+
+    }
     stalemate(){
+       
         let examinePieces=[];
         for(let piece of this.pieceset.set){
             if(piece.colour==this.colour){
@@ -1521,29 +1542,37 @@ class Board{
                         fetch("/newGame/opponentMove").then(response => response.json()).then(
                             data=>{
                                 console.log(data);
-                                let newPosition=data.newPos;
-                                console.log("new position ", newPosition)
-                                if(newPosition == 'draw' && first_time){
-                                    first_time = false
-                                    continueWaiting = false
-                                    e = true
-                                    alert("draw");
-                                }
-                                else if(newPosition == 'lost' && first_time){
-                                    first_time = false
-                                    continueWaiting = false
-                                    e = true
-                                    alert("checkmate");
-                                }
-                                else if(newPosition && first_time) {
-                                    first_time = false
-                                    e = true
-                                    console.log("colour before:", board.colour)
-                                    console.log("newPos:", newPosition)
-                                    board.setPosition(newPosition)
-                                    board.colourChange()
-                                    console.log("colour after:", board.colour)
-                                }
+                                    let newPosition=data.newPos;
+                                    let newStatus=data.gameStatus;
+                                    console.log("new position ", newPosition)
+                                    console.log("game Status ", newStatus)
+                                    console.log("first_time ", first_time)
+                                    if(newStatus == 'draw' && first_time && newPosition){
+                                        first_time = false
+                                        continueWaiting = false
+                                        e = true
+                                        board.setPosition(newPosition)
+                                        alert("draw");
+                                    }
+                                    else if(newStatus == 'lost' && first_time && newPosition){
+                                        first_time = false
+                                        continueWaiting = false
+                                        e = true
+                                        board.setPosition(newPosition)
+                                        alert("checkmate");
+                                    }
+                                    else if(newStatus == 'win' && first_time){
+                                        first_time = false
+                                        continueWaiting = false
+                                        e = true
+                                    }
+                                    else if(newPosition && first_time) {
+                                        first_time = false
+                                        e = true
+                                        console.log("newPos:", newPosition)
+                                        board.setPosition(newPosition)
+                                        board.colourChange()
+                                    }
                             });
                         console.log('waiting for other player to play...')
                         if (e) {
@@ -1685,13 +1714,14 @@ class Board{
                         if(board.checkMate()){
                             board.status="finished";
                             fetch('/newGame/checkmate')
-                            alert("checkmate");
+                            alert("Checkmate");
                         }
-                        else if(board.stalemate()){
+                        else if(board.draw()||board.stalemate()){
                             board.status="finished";
                             fetch('/newGame/draw')
-                            alert("stalemate");
+                            alert("Draw");
                         }
+                        
                         board.selectedPiece=undefined;
                         
                         
@@ -1821,8 +1851,8 @@ class Board{
                         }
                         let targetdiv=document.getElementById(destination);
                         let transfer=document.getElementById(board.selectedPiece.pos).removeChild(document.getElementById(board.selectedPiece.pos).childNodes[0]);
-                        console.log(rookStart!=undefined)
-                        console.log(rookEnd!=undefined)
+                        //console.log(rookStart!=undefined)
+                        //console.log(rookEnd!=undefined)
                         if(rookEnd!=undefined&&rookStart!=undefined){
                                 for(let piece of board.pieceset.set){
                                     if(piece.pos==rookStart.id)piece.pos=rookEnd.id;
@@ -1855,10 +1885,10 @@ class Board{
                             fetch('/newGame/checkmate')
                             alert("checkmate");
                         }
-                        else if(board.stalemate()){
+                        else if(board.draw()||board.stalemate()){
                             board.status="finished";
                             fetch('/newGame/draw')
-                            alert("stalemate");
+                            alert("Draw");
                         }
                         board.selectedPiece=undefined;
                         if(!promote && continueWaiting){
@@ -1886,28 +1916,36 @@ class Board{
                                     data=>{
                                         console.log(data);
                                         let newPosition=data.newPos;
+                                        let newStatus=data.gameStatus;
                                         console.log("new position ", newPosition)
-                                        if(newPosition == 'draw' && first_time){
+                                        console.log("game Status ", newStatus)
+                                        console.log("first_time ", first_time)
+                                        if(newStatus == 'draw' && first_time && newPosition){
                                             first_time = false
                                             continueWaiting = false
                                             e = true
+                                            board.setPosition(newPosition)
                                             alert("draw");
                                         }
-                                        else if(newPosition == 'lost'&& first_time){
+                                        else if(newStatus == 'lost' && first_time && newPosition){
                                             first_time = false
                                             continueWaiting = false
                                             e = true
-                                            alert("checkmate" );
+                                            board.setPosition(newPosition)
+                                            alert("checkmate");
+                                        }
+                                        else if(newStatus == 'win' && first_time){
+                                            first_time = false
+                                            continueWaiting = false
+                                            e = true
                                         }
                                         else if(newPosition && first_time) {
-                                                first_time = false
-                                                e = true
-                                                console.log("colour before:", board.colour)
-                                                console.log("newPos:", newPosition)
-                                                board.setPosition(newPosition)
-                                                board.colourChange()
-                                                console.log("colour after:", board.colour)
-                                            }
+                                            first_time = false
+                                            e = true
+                                            console.log("newPos:", newPosition)
+                                            board.setPosition(newPosition)
+                                            board.colourChange()
+                                        }
                                     });
                                 console.log('waiting for other player to play...')
                                 if (e) {
