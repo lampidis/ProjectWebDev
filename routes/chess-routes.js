@@ -12,7 +12,6 @@ const logInController = require('../controller/log-in-controller');
 //router.get('/move/:moveId', chessListController.move)
 
 router.route('/').get((req, res) => { res.redirect('/home') });
-
 router.route('/login').get(logInController.checkAuthenticated, logInController.showLogInForm);
 //Αυτή η διαδρομή καλείται όταν η φόρμα φτάσει με POST και διεκπεραιώνει τη σύνδεση
 router.route('/login').post(logInController.doLogin);

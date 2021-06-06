@@ -56,7 +56,7 @@ class Board{
         let pieceColour=move.piece.colour;
         let examinePieces=[];
         for(let piece of this.pieceset.set){
-            if(piece.behaviour!="king"&&piece.colour!=move.piece.colour){
+            if(!(piece.behaviour=="king"&&piece.colour!=move.piece.colour)){
                 examinePieces.push(piece);
             }
         }
@@ -165,9 +165,9 @@ class Board{
         }
         if(beh=="bishop"){
             for(let piece of examinePieces){
-                   
+                
                 if(piece.pos==`${row}${columns[col-1]}`&&piece.colour==move.piece.colour){
-                    
+                   
                     
                     return false;
 
@@ -427,7 +427,7 @@ class Board{
         //console.log("Not to be checked");
         //console.log(notToBeChecked);
         for(let piece of this.pieceset.set){
-            if(piece.behaviour!="king"&&piece.colour!=move.piece.colour){
+            if(!(piece.behaviour=="king"&&piece.colour!=move.piece.colour)){
                 examinePieces.push(piece);
             }
         }
@@ -1499,7 +1499,7 @@ class Board{
                 
                 
                 div.appendChild(pieceImage);
-                boardContainer.removeChild(modalD);
+                document.getElementById(board.id).removeChild(modalD);
                 if(board.id!="selfAnalyzing" && continueWaiting){
                     let currentPosition=board.transformToForsythEdwardsNotation(board.pieceset.set);
                     var lastmove = ""+Abriviation+PositionBefore+PositionTo
@@ -1557,7 +1557,7 @@ class Board{
             });
             
         }
-        boardContainer.appendChild(modalD);
+        document.getElementById(board.id).appendChild(modalD);
         //fetch for promoted */---------------------------------------------------------------
         
 

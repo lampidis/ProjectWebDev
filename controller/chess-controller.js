@@ -6,38 +6,6 @@ const url = require('url');
 const model = require('../model/postgres/chess-model-heroku-pg.js');
 
 
-exports.getlogin = (req, res) => {
-    console.log("GET / session", req.session);
-    userID = req.session.userID
-    console.log("/get/", userID)
-    if (userID){
-        model.findUser(userID=userID, userName=null, (err, row) => {
-        if (err){-
-            console.error(err.message);
-        } else
-            res.render("login", {user: row[0].userName});
-        });
-    } else
-    res.render("login");
-}
-exports.postlogin = (req, res) => {
-    console.log("POST / session", req.session);
-    console.log("/", req.body.userName);
-    // έχει συμπληρωθεί το userName στη φόρμα
-    // βρες τον χρήστη id ή δημιούργησε χρήστη αν δεν υπάρχει
-    model.findUser(userID=null, userName=req.body.userName, (err, row) => {
-        console.log('row', row)
-        if (err){
-        console.log(err.message);
-        } else {
-        req.session.userID = row[0].userID;
-        req.session.userName = row[0].userName;
-        console.log(req.session)
-        }
-    });
-    res.render("login", {user: req.body.userName});
-}
-
 
 exports.getHomePage = (req, res) => {
     console.log("getHomePage")
@@ -61,7 +29,7 @@ exports.getEndings = (req, res) => {
 }
 exports.getPuzzles = (req, res) => {
     console.log("getPuzzles")
-    res.render('creategame')
+    res.render('index')
 }
 exports.getNewGame = (req, res) => {
     console.log("newGame")
@@ -71,6 +39,7 @@ exports.getLobby = (req, res) => {
     console.log("getLobby")
     res.render('lobby')
 }
+
 
 
 exports.makeMove = (req,res) => {
@@ -97,7 +66,6 @@ exports.makeMove = (req,res) => {
         });
     })
 }
-
 exports.getInfo = (req, res) => {
     console.log("getInfo")
     if(req.session.board_id){
