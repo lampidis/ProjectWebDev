@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="js/theme.js" defer></script>
+    <script src="js/chat.js" defer></script>
+    <link rel="stylesheet" href="css/navStyle.css" />
+    <link rel="stylesheet" href="css/chatbox.css">
+    <link rel="stylesheet" href="css/homeStyle.css">
+    <link rel="stylesheet" href="css/userStyle.css">
+  </head>
+  
+  <body>
+    <nav class="navbar">
+      <ul class="navbar-nav">
+        <li class="logo">
+          <a href="/index.html" class="nav-link">
+            <span class="link-text logo-text">Chess</span>
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              data-prefix="fad"
+              data-icon="angle-double-right"
+              role="img"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 448 512"
+              class="svg-inline--fa fa-angle-double-right fa-w-14 fa-5x"
+            >
+              <g class="fa-group">
+                <path
+                  fill="currentColor"
+                  d="M224 273L88.37 409a23.78 23.78 0 0 1-33.8 0L32 386.36a23.94 23.94 0 0 1 0-33.89l96.13-96.37L32 159.73a23.94 23.94 0 0 1 0-33.89l22.44-22.79a23.78 23.78 0 0 1 33.8 0L223.88 239a23.94 23.94 0 0 1 .1 34z"
+                  class="fa-secondary"
+                ></path>
+                <path
+                  fill="currentColor"
+                  d="M415.89 273L280.34 409a23.77 23.77 0 0 1-33.79 0L224 386.26a23.94 23.94 0 0 1 0-33.89L320.11 256l-96-96.47a23.94 23.94 0 0 1 0-33.89l22.52-22.59a23.77 23.77 0 0 1 33.79 0L416 239a24 24 0 0 1-.11 34z"
+                  class="fa-primary"
+                ></path>
+              </g>
+            </svg>
+          </a>
+        </li>
+        
+        <li class="nav-item">
+          <a href="/newgame.html" class="nav-link">
+            <svg aria-hidden="true" 
+                  focusable="false" 
+                  data-prefix="fas" 
+                  data-icon="chess-pawn" 
+                  class="svg-inline--fa fa-chess-pawn fa-w-10" 
+                  role="img" 
+                  xmlns="http://www.w3.org/2000/svg" 
+                  viewBox="0 0 420 512"
+                  class="svg-inline--fa fa-space-shuttle fa-w-20 fa-5x"
+            >
+              <g class="fa-group">
+                <path
+                  fill="currentColor"
+                  d="M105.1 224H80a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h16v5.49c0 44-4.14 86.6-24 122.51h176c-19.89-35.91-24-78.51-24-122.51V288h16a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16h-25.1c29.39-18.38 49.1-50.78 49.1-88a104 104 0 0 0-208 0c0 37.22 19.71 69.62 49.1 88zM304 448H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h288a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16z"
+                  class="fa-primary"
+                ></path>
+              </g>
+            </svg>
+            <span class="link-text">New Game</span>
+          </a>
+        </li>
+  
+        <li class="nav-item">
+          <a href="/openings.html" class="nav-link">
+            <svg aria-hidden="true" 
+              focusable="false" 
+              data-prefix="fas" 
+              data-icon="book-open" 
+              class="svg-inline--fa fa-book-open fa-w-18" 
+              role="img" 
+              xmlns="http://www.w3.org/2000/svg" 
+              viewBox="0 0 576 512"
+              class="svg-inline--fa fa-w-20 fa-5x"
+            >
+              <g class="fa-group">
+                <path
+                  fill="currentColor"
+                  d="M542.22 32.05c-54.8 3.11-163.72 14.43-230.96 55.59-4.64 2.84-7.27 7.89-7.27 13.17v363.87c0 11.55 12.63 18.85 23.28 13.49 69.18-34.82 169.23-44.32 218.7-46.92 16.89-.89 30.02-14.43 30.02-30.66V62.75c.01-17.71-15.35-31.74-33.77-30.7zM264.73 87.64C197.5 46.48 88.58 35.17 33.78 32.05 15.36 31.01 0 45.04 0 62.75V400.6c0 16.24 13.13 29.78 30.02 30.66 49.49 2.6 149.59 12.11 218.77 46.95 10.62 5.35 23.21-1.94 23.21-13.46V100.63c0-5.29-2.62-10.14-7.27-12.99z"
+                  class="fa-primary"
+                ></path>
+              </g>
+            </svg>
+            <span class="link-text">Academy</span>
+          </a>
+        </li>
+  
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <svg aria-hidden="true" 
+            focusable="false" 
+            data-prefix="fas" 
+            data-icon="puzzle" 
+            class="svg-inline--fa fa-user-plus fa-w-20" 
+            role="img" 
+            xmlns="http://www.w3.org/2000/svg" 
+            viewBox="0 0 640 512"
+            class="svg-inline--fa fa-space-shuttle fa-w-20 fa-5x"
+            >
+              <g class="fa-group">
+                <path
+                  fill="currentColor"
+                  d="M519.442 288.651c-41.519 0-59.5 31.593-82.058 31.593C377.409 320.244 432 144 432 144s-196.288 80-196.288-3.297c0-35.827 36.288-46.25 36.288-85.985C272 19.216 243.885 0 210.539 0c-34.654 0-66.366 18.891-66.366 56.346 0 41.364 31.711 59.277 31.711 81.75C175.885 207.719 0 166.758 0 166.758v333.237s178.635 41.047 178.635-28.662c0-22.473-40-40.107-40-81.471 0-37.456 29.25-56.346 63.577-56.346 33.673 0 61.788 19.216 61.788 54.717 0 39.735-36.288 50.158-36.288 85.985 0 60.803 129.675 25.73 181.23 25.73 0 0-34.725-120.101 25.827-120.101 35.962 0 46.423 36.152 86.308 36.152C556.712 416 576 387.99 576 354.443c0-34.199-18.962-65.792-56.558-65.792z"
+                  class="fa-primary"
+                ></path>
+              </g>
+            </svg>
+            <span class="link-text">Puzzles</span>
+          </a>
+        </li>
+  
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <svg aria-hidden="true" 
+            focusable="false" 
+            data-prefix="fas" 
+            data-icon="user-plus" 
+            class="svg-inline--fa fa-user-plus fa-w-20" 
+            role="img" 
+            xmlns="http://www.w3.org/2000/svg" 
+            viewBox="0 0 640 512"
+            class="svg-inline--fa fa-space-shuttle fa-w-20 fa-5x"
+            >
+              <g class="fa-group">
+                <path
+                  fill="currentColor"
+                  d="M624 208h-64v-64c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v64h-64c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h64v64c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16v-64h64c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16zm-400 48c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"
+                  class="fa-primary"
+                ></path>
+              </g>
+            </svg>
+            <span class="link-text">Invite a friend</span>
+          </a>
+        </li>
+  
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <svg aria-hidden="true" 
+            focusable="false" 
+            data-prefix="fas" 
+            data-icon="user-plus" 
+            class="svg-inline--fa fa-user-plus fa-w-20" 
+            role="img" 
+            xmlns="http://www.w3.org/2000/svg" 
+            viewBox="0 0 640 512"
+            class="svg-inline--fa fa-space-shuttle fa-w-20 fa-5x"
+            >
+              <g class="fa-group">
+                <path
+                  fill="currentColor"
+                  d="M487.4 315.7l-42.6-24.6c4.3-23.2 4.3-47 0-70.2l42.6-24.6c4.9-2.8 7.1-8.6 5.5-14-11.1-35.6-30-67.8-54.7-94.6-3.8-4.1-10-5.1-14.8-2.3L380.8 110c-17.9-15.4-38.5-27.3-60.8-35.1V25.8c0-5.6-3.9-10.5-9.4-11.7-36.7-8.2-74.3-7.8-109.2 0-5.5 1.2-9.4 6.1-9.4 11.7V75c-22.2 7.9-42.8 19.8-60.8 35.1L88.7 85.5c-4.9-2.8-11-1.9-14.8 2.3-24.7 26.7-43.6 58.9-54.7 94.6-1.7 5.4.6 11.2 5.5 14L67.3 221c-4.3 23.2-4.3 47 0 70.2l-42.6 24.6c-4.9 2.8-7.1 8.6-5.5 14 11.1 35.6 30 67.8 54.7 94.6 3.8 4.1 10 5.1 14.8 2.3l42.6-24.6c17.9 15.4 38.5 27.3 60.8 35.1v49.2c0 5.6 3.9 10.5 9.4 11.7 36.7 8.2 74.3 7.8 109.2 0 5.5-1.2 9.4-6.1 9.4-11.7v-49.2c22.2-7.9 42.8-19.8 60.8-35.1l42.6 24.6c4.9 2.8 11 1.9 14.8-2.3 24.7-26.7 43.6-58.9 54.7-94.6 1.5-5.5-.7-11.3-5.6-14.1zM256 336c-44.1 0-80-35.9-80-80s35.9-80 80-80 80 35.9 80 80-35.9 80-80 80z"
+                  class="fa-primary"
+                ></path>
+              </g>
+            </svg>
+            <span class="link-text">Settings</span>
+          </a>
+        </li>
+        
+        <li class="nav-item" id="themeButton">
+          <a href="#" class="nav-link">
+            <svg
+              class="theme-icon"
+              id="lightIcon"
+              aria-hidden="true"
+              focusable="false"
+              data-prefix="fad"
+              data-icon="moon-stars"
+              role="img"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 612 512"
+              class="svg-inline--fa fa-moon-stars fa-w-16 fa-7x"
+            >
+              <g class="fa-group">
+                <path
+                  fill="currentColor"
+                  d="M512 0C460.22 3.56 96.44 38.2 71.01 287.61c-3.09 26.66-4.84 53.44-5.99 80.24l178.87-178.69c6.25-6.25 16.4-6.25 22.65 0s6.25 16.38 0 22.63L7.04 471.03c-9.38 9.37-9.38 24.57 0 33.94 9.38 9.37 24.59 9.37 33.98 0l57.13-57.07c42.09-.14 84.15-2.53 125.96-7.36 53.48-5.44 97.02-26.47 132.58-56.54H255.74l146.79-48.88c11.25-14.89 21.37-30.71 30.45-47.12h-81.14l106.54-53.21C500.29 132.86 510.19 26.26 512 0z"
+                  class="fa-primary"
+                ></path>
+              </g>
+              <!-- <g class="fa-group">
+                <path
+                  fill="currentColor"
+                  d="M320 32L304 0l-16 32-32 16 32 16 16 32 16-32 32-16zm138.7 149.3L432 128l-26.7 53.3L352 208l53.3 26.7L432 288l26.7-53.3L512 208z"
+                  class="fa-secondary"
+                ></path>
+                <path
+                  fill="currentColor"
+                  d="M332.2 426.4c8.1-1.6 13.9 8 8.6 14.5a191.18 191.18 0 0 1-149 71.1C85.8 512 0 426 0 320c0-120 108.7-210.6 227-188.8 8.2 1.6 10.1 12.6 2.8 16.7a150.3 150.3 0 0 0-76.1 130.8c0 94 85.4 165.4 178.5 147.7z"
+                  class="fa-primary"
+                ></path>
+              </g> -->
+            </svg>
+            <svg
+              class="theme-icon"
+              id="solarIcon"
+              aria-hidden="true"
+              focusable="false"
+              data-prefix="fad"
+              data-icon="sun"
+              role="img"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 512 512"
+              class="svg-inline--fa fa-sun fa-w-16 fa-7x"
+            >
+              <g class="fa-group">
+                <path
+                  fill="currentColor"
+                  d="M502.42 240.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.41-94.8a17.31 17.31 0 0 0-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4a17.31 17.31 0 0 0 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.41-33.5 47.3 94.7a17.31 17.31 0 0 0 31 0l47.31-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3a17.33 17.33 0 0 0 .2-31.1zm-155.9 106c-49.91 49.9-131.11 49.9-181 0a128.13 128.13 0 0 1 0-181c49.9-49.9 131.1-49.9 181 0a128.13 128.13 0 0 1 0 181z"
+                  class="fa-secondary"
+                ></path>
+                <path
+                  fill="currentColor"
+                  d="M352 256a96 96 0 1 1-96-96 96.15 96.15 0 0 1 96 96z"
+                  class="fa-primary"
+                ></path>
+              </g>
+            </svg>
+            <svg
+              class="theme-icon"
+              id="darkIcon"
+              aria-hidden="true"
+              focusable="false"
+              data-prefix="fad"
+              data-icon="sunglasses"
+              role="img"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 576 512"
+              class="svg-inline--fa fa-moon-stars fa-w-18 fa-7x"
+            >
+              <g class="fa-group">
+                <path
+                  fill="currentColor"
+                  d="M320 32L304 0l-16 32-32 16 32 16 16 32 16-32 32-16zm138.7 149.3L432 128l-26.7 53.3L352 208l53.3 26.7L432 288l26.7-53.3L512 208z"
+                  class="fa-secondary"
+                ></path>
+                <path
+                  fill="currentColor"
+                  d="M332.2 426.4c8.1-1.6 13.9 8 8.6 14.5a191.18 191.18 0 0 1-149 71.1C85.8 512 0 426 0 320c0-120 108.7-210.6 227-188.8 8.2 1.6 10.1 12.6 2.8 16.7a150.3 150.3 0 0 0-76.1 130.8c0 94 85.4 165.4 178.5 147.7z"
+                  class="fa-primary"
+                ></path>
+              </g>
+            </svg>
+            <span class="link-text">Theme</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <nav class="header">
+        <a href="#" class="nav-link">
+          <svg aria-hidden="true" 
+                focusable="false" 
+                data-prefix="fas" 
+                data-icon="user" 
+                class="svg-inline--fa fa-user fa-w-10" 
+                role="img" 
+                xmlns="http://www.w3.org/2000/svg" 
+                viewBox="0 0 520 512"
+                class="svg-inline--fa fa-space-shuttle fa-w-20 fa-5x"
+          >
+            <g class="fa-group">
+              <path
+                fill="currentColor"
+                d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"
+                class="fa-primary"
+              ></path>
+            </g>
+          </svg>
+          <span class="link-text">Login</span>
+        </a>
+    </nav>
+    <main>
+        <div class="wrapper">
+            <div class="panel">
+              <div class="panel-header">
+                <h3 class="title">Statistics</h3>
+       
+                <div class="calendar-views">
+                  <span>Bullet</span>
+                  <span>Blitz</span>
+                  <span>Rapid</span>
+                  <span>Puzzles</span>
+                </div>
+              </div>
+       
+              <div class="panel-body">
+                <div class="categories">
+                  <div class="category">
+                    <span>Total Games</span>
+                    <span>1.897</span>
+                  </div>
+                  <div class="category">
+                    <span>Won</span>
+                    <span>1.073</span>
+                  </div>
+                  <div class="category">
+                    <span>Lost</span>
+                    <span>824</span>
+                  </div>
+                  <div class="category">
+                    <span>Friends</span>
+                    <span>12</span>
+                  </div>
+                </div>
+       
+                <div class="chart">
+                  <div class="operating-systems">
+                    <span class="bullet stats">
+                      <span></span>Bullet
+                    </span>
+                    <span class="blitz stats">
+                      <span></span>Blitz
+                    </span>
+                    <span class="rapid stats">
+                      <span></span>Rapid
+                    </span>
+                    <span class="puzzles stats">
+                      <span></span>Puzzles
+                    </span>
+                  </div>
+       
+                  <svg width="563" height="204" class="data-chart" viewBox="0 0 563 204" xmlns="https://www.w3.org/2000/svg">
+                    <g fill="none" fill-rule="evenodd">
+                      <path class="dataset-1" d="M30.046 97.208c2.895-.84 5.45-2.573 7.305-4.952L71.425 48.52c4.967-6.376 14.218-7.38 20.434-2.217l29.447 34.46c3.846 3.195 9.08 4.15 13.805 2.52l31.014-20.697c4.038-1.392 8.485-.907 12.13 1.32l3.906 2.39c5.03 3.077 11.43 2.753 16.124-.814l8.5-6.458c6.022-4.577 14.563-3.676 19.5 2.056l54.63 55.573c5.622 6.526 15.686 6.647 21.462.258l37.745-31.637c5.217-5.77 14.08-6.32 19.967-1.24l8.955 7.726c5.42 4.675 13.456 4.63 18.82-.11 4.573-4.036 11.198-4.733 16.508-1.735l61.12 34.505c4.88 2.754 10.916 2.408 15.45-.885L563 90.915V204H0v-87.312-12.627c5.62-.717 30.046-6.852 30.046-6.852z" fill="#7DC855" opacity=".9"/>
+                      <path class="dataset-2" d="M563 141.622l-21.546-13.87c-3.64-2.343-8.443-1.758-11.408 1.39l-7.565 8.03c-3.813 4.052-10.378 3.688-13.718-.758L469.83 84.58c-3.816-5.08-11.588-4.687-14.867.752l-28.24 46.848c-2.652 4.402-8.48 5.673-12.74 2.78l-15.828-10.76c-3.64-2.475-8.55-1.948-11.575 1.245l-53.21 43.186c-3.148 3.32-8.305 3.74-11.953.974l-100.483-76.2c-3.364-2.55-8.06-2.414-11.27.326l-18.24 15.58c-3.25 2.773-8.015 2.874-11.38.24L159.91 93.79c-3.492-2.733-8.467-2.51-11.697.525l-41.58 39.075c-2.167 2.036-5.21 2.868-8.117 2.218L39.05 112.5c-4.655-1.808-9.95-.292-12.926 3.7L0 137.31V204h563v-62.378z" fill="#F8E71C" opacity=".6"/>
+                      <path class="dataset-3" d="M0 155.59v47.415c0 .55.448.995 1 .995h562v-43.105l-40.286 11.83c-3.127.92-6.493.576-9.368-.954l-53.252-28.32c-5.498-2.924-12.323-1.365-15.987 3.654l-25.48 34.902c-4.08 5.59-12.478 5.513-16.455-.148L360.06 121.92c-2.802-4.073-8.2-5.457-12.633-3.237L322.2 133.827c-4.415 2.21-9.792.848-12.604-3.196L282.78 99.25c-4.106-5.906-12.978-5.6-16.665.57l-26.757 44.794c-3.253 5.446-10.753 6.468-15.36 2.092l-16.493-15.673c-4.27-4.058-11.138-3.522-14.72 1.148l-23.167 30.21c-3.722 4.852-10.937 5.207-15.12.744l-44.385-47.345c-5.807-5.427-14.83-5.508-20.734-.19l-55.76 48.31c-3.76 3.26-9.127 3.93-13.582 1.703L0 155.59z" fill="#F5A623" opacity=".7"/>
+                      <path class="dataset-4" d="M0 155.54v47.415c0 .55.448.995 20 .995h562v-43.105l-40.286 31.83c-3.127.92-6.493.576-9.368-.54l-53.252-28.32c-5.498-2.924-12.323-1.365-15.987 3.654l-25.48 34.902c-4.08 5.59-12.478 5.513-16.455-.148L360.06 121.92c-2.802-4.073-8.2-5.457-12.633-3.237L322.2 133.827c-4.415 2.21-9.792.848-12.604-3.196L282.78 139.25c-4.106-5.906-12.978-5.6-16.665.57l-26.757 44.794c-3.253 5.446-10.753 6.468-15.36 2.092l-16.493-15.673c-4.27-4.058-11.138-3.522-14.72 22.148l-23.167 30.21c-3.722 4.852-10.937 5.207-15.12.744l-44.385-47.345c-5.807-5.427-14.83-5.508-20.734-.19l-55.76 38.31c-3.76 3.26-9.127 12.83-13.582 1.703L0 175.59z" fill="#7e4df0" opacity=".7"/>
+                      <path class="lines" fill="#FFF" opacity=".2" d="M0 203h563v1H0zM0 153h563v1H0zM0 102h563v1H0zM0 51h563v1H0zM0 0h563v1H0z"/>
+                    </g>
+                  </svg>
+       
+                </div>
+              </div>
+            </div>
+    </main>
+</body>
+</html>

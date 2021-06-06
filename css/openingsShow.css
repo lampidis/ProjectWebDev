@@ -1,0 +1,24 @@
+
+.open_end_show{
+    flex: 1 1 100%;
+    margin: 2.5em;
+    display: flex;
+    overflow-x: auto;
+    flex-direction: column;
+    gap: 20px;
+}
+
+img{
+    width: 30em;
+}
+
+.open_end_show div{
+    display: fleX;
+    flex-direction: row;
+    gap: 3em;
+}
+
+#title{
+    font-size: 200%;
+    font-weight: bold;
+    color: black;
