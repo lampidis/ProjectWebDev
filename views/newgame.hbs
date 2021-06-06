@@ -1,0 +1,68 @@
+<main>
+    <script src="js/NewGame.js" defer></script>
+  <div class="home">
+    <!--Bandaid-->
+    <div class="test">
+        <div class="wrapperBoard" id="board">
+        <!--Bandaid-->
+        </div>
+    </div>
+    <div class="gameInfo"> 
+        <div class="player">
+            <img src="source/hat-icon.png" alt="">
+            <p>{{player1}}</p>
+        </div>
+        <div class="score">
+            0 - 0        
+        </div>
+        <div class="player">
+            <img src="source/hat-icon.png" alt="">
+            <p>{{player2}}</p>
+        </div>
+    </div>
+    <!--Chat-->
+    <button class="chatExpansion" onclick="openForm()"><img src="source/social.jpg" alt="chat"></button>
+    <div class="chatBox">
+        <form class="chatContainer chatForm" action="">
+            <div class="chatSelectorFlex">
+            <div class="chatSelector selected">
+                <span>Λουκάς</span>
+            </div>
+            <div class="chatSelector">
+                <span>Άρης</span>
+            </div>
+            <div class="chatSelector">
+                <span>Κωστας</span>
+            </div>
+        </div>
+            <div class="Xdiv">
+                <button class="closeButton" onclick="closeForm()" type="button">
+                    <img src="source/x.jpg" alt="">
+                    
+                </button>
+            </div>
+            
+            
+            <div class="chatHistory">
+                <div class="sent">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos tempore distinctio eaque laudantium nam quaerat inventore rem debitis illum, vitae corporis unde quidem illo est, qui ipsam praesentium minus vel.
+                </div>
+                <div class="recieved">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos tempore distinctio eaque laudantium nam quaerat 
+                </div>
+                
+                <div class="recieved">
+                    inventore rem debitis illum, vitae corporis unde quidem illo est, qui ipsam praesentium minus vel.
+                </div>
+                <div class="sent">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos tempore distinctio eaque laudantium nam quaerat inventore rem debitis illum, vitae corporis unde quidem illo est, qui ipsam praesentium minus vel.
+                </div>
+                
+            </div>
+            <textarea name="chatbox" id="chatbox"   placeholder="Type message..." required></textarea>
+            <button type="submit" class="sendButton">Send</button>
+
+        </form>                 
+    </div>
+  </div>
+</main>
