@@ -1533,6 +1533,8 @@ class Board{
                         .then(response => response.json())
                         .then(data => {
                                 console.log(data);
+                                document.getElementById("player1").classList.add("playerTurn");
+                                document.getElementById("player2").classList.remove("playerTurn");
                         });
     
                     let e = false
@@ -1572,6 +1574,8 @@ class Board{
                                         console.log("newPos:", newPosition)
                                         board.setPosition(newPosition)
                                         board.colourChange()
+                                        document.getElementById("player2").classList.add("playerTurn");
+                                        document.getElementById("player1").classList.remove("playerTurn");
                                     }
                             });
                         console.log('waiting for other player to play...')
@@ -1906,6 +1910,8 @@ class Board{
                                 .then(response => response.json())
                                 .then(data => {
                                         console.log(data);
+                                        document.getElementById("player1").classList.add("playerTurn");
+                                        document.getElementById("player2").classList.remove("playerTurn");
                                 });
 
                             let e = false
@@ -1945,6 +1951,8 @@ class Board{
                                             console.log("newPos:", newPosition)
                                             board.setPosition(newPosition)
                                             board.colourChange()
+                                            document.getElementById("player2").classList.add("playerTurn");
+                                            document.getElementById("player1").classList.remove("playerTurn");
                                         }
                                     });
                                 console.log('waiting for other player to play...')

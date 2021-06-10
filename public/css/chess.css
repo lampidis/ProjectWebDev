@@ -157,7 +157,18 @@
     display: none;
   }
 
-  @media only screen and (max-width: 1000px) {
+.playerNames {
+    font-size: 14px;
+    font-weight: 300;
+    padding: 6px 14px;
+    border: 2px solid transparent;
+}
+.playerTurn{
+    border: 2px solid #b93c3c;
+    border-radius: 15px;
+}
+
+@media only screen and (max-width: 1000px) {
     .test {
         margin-left: auto;
         margin-right: auto;
