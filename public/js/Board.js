@@ -4,7 +4,7 @@ const rows=["1","2","3","4","5","6","7","8"].reverse();
 const startingposition="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR";
 const testPosition="8/pP6/1K3k2/8/8/8/QQQqqqQQ/8";
 const wrongMate="8/8/8/8/8/6K1/7P/7k";
-const stalematePosition="7k/7P/6Q1/8/8/8/8/K7";
+const stalematePosition="7k/7P/6Q1/p7/P7/8/8/K7";
 const fastmate="rnbqkbnr/pp3ppp/2pp4/4p3/2B1P3/5Q3/PPPP1PPP/RNB1K1NR";
 const bishopCheck="rnbqkbnr/pppp1ppp/5n2/7Q/4p3/";
 
