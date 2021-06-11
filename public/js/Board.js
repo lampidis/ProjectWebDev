@@ -1622,7 +1622,8 @@ class Board{
                         if(piece.pos==this.getAttribute("id")){
                             occupancy=true;
                             board.selectedPiece=piece;
-                            
+                            selectedPieceDiv = piece.pos;
+                            document.getElementById(selectedPieceDiv).classList.add("selectedPiece");
                         }
                     }
                 }
@@ -1717,12 +1718,10 @@ class Board{
                         }
                         if(board.checkMate()){
                             board.status="finished";
-                            fetch('/newGame/checkmate')
                             alert("Checkmate");
                         }
                         else if(board.draw()||board.stalemate()){
                             board.status="finished";
-                            fetch('/newGame/draw')
                             alert("Draw");
                         }
                         
@@ -1735,6 +1734,7 @@ class Board{
                     else{//invalid move
                         board.selectedPiece=undefined;
                     }
+                    document.getElementById(selectedPieceDiv).classList.remove("selectedPiece");
                 }
                 
                 });
